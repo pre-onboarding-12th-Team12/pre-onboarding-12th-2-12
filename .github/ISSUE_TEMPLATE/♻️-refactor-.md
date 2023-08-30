@@ -1,9 +1,10 @@
 ---
-name: '♻️ [Refactor]'
+name: "♻️ Refactor:"
 about: 기능은 동일, 코드만 수정
-title: ''
-labels: '♻️Refacor'
+title: "♻️ Refactor:"
+labels: ''
 assignees: ''
+
 ---
 
 ## :bookmark_tabs: 이슈 내용
