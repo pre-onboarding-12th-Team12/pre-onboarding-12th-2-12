@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --cache .",
     "format": "prettier --cache --write .",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -53,7 +54,7 @@
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "prettier": "^3.0.3"
   }
 }
