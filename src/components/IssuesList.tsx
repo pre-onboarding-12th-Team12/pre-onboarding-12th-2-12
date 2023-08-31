@@ -12,14 +12,12 @@ const IssuesList = ({ list }: ListType) => {
   const createDate = list.created_at?.split('T')[0];
 
   return (
-    <ListContent>
+    <ListContent
+      onClick={() => navigate(`/detail/${list.id}`, { state: list.number })}
+    >
       <TopContent>
         <Number>#{list.number}</Number>
-        <Title
-          onClick={() => navigate(`/detail/${list.id}`, { state: list.number })}
-        >
-          {list.title}
-        </Title>
+        <Title>{list.title}</Title>
         <Conmment>코멘트: {list.comments}</Conmment>
       </TopContent>
 
@@ -39,12 +37,17 @@ const ListContent = styled.div`
   width: 100%;
   border-bottom: 1px solid #6e6e6e;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(103%);
+    transition: all 0.7s;
+  }
 `;
 
 const TopContent = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 `;
 
 const BottomContent = styled.div`
