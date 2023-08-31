@@ -4,7 +4,6 @@ about: 에러 사항을 입력해주세요.
 title: "\U0001F41E Bug:"
 labels: ''
 assignees: ''
-
 ---
 
 ## :bookmark_tabs: 이슈 내용
