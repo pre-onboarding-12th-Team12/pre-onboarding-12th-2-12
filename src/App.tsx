@@ -20,9 +20,9 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Wrapper>
-        <Outlet />
-      </Wrapper>
+      {/* <Wrapper> */}
+      <Outlet />
+      {/* </Wrapper> */}
     </>
   );
 }
