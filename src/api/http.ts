@@ -2,10 +2,12 @@ import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 const BASE_URL = 'https://api.github.com';
 const TOKEN = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 
+// Github API를 사용하기 위해서는 토큰이 필요합니다.
 if (!TOKEN) {
   throw new Error('Github token is missing');
 }
 
+// Axios 인스턴스 생성
 const axios = Axios.create({
   baseURL: BASE_URL,
   headers: {
@@ -15,6 +17,7 @@ const axios = Axios.create({
   },
 });
 
+// 공통 에러 처리
 axios.interceptors.response.use(
   <T>(response: AxiosResponse<T>) => {
     return response.data;
@@ -28,6 +31,7 @@ axios.interceptors.response.use(
   }
 );
 
+// HTTP 요청을 보내는 함수
 export const http = {
   get: function get<Response = unknown>(
     url: string,
