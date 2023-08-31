@@ -14,7 +14,7 @@ export const getIssues = async (
   page: number
 ): Promise<Issues | any> => {
   const response = await http.get<Issues>(
-    `/repos/${owner}/${repo}/issues?page=${page}&sort=comments&state=open`
+    `/repos/${owner}/${repo}/issues?page=${page}&per_page=28&sort=comments&state=open`
   );
   return response;
 };
