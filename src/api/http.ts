@@ -1,6 +1,10 @@
-import Axios, { AxiosRequestConfig } from 'axios';
+import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 const BASE_URL = 'https://api.github.com';
-const TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+const TOKEN = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
+
+if (!TOKEN) {
+  throw new Error('Github token is missing');
+}
 
 const axios = Axios.create({
   baseURL: BASE_URL,
@@ -12,11 +16,11 @@ const axios = Axios.create({
 });
 
 axios.interceptors.response.use(
-  response => {
-    return response;
+  <T>(response: AxiosResponse<T>) => {
+    return response.data;
   },
-  error => {
-    if (error.response.status === 404) {
+  (error: AxiosError) => {
+    if (error.response && error.response.status === 404) {
       throw new Error('Page Not Found');
     } else {
       throw error;
@@ -28,11 +32,14 @@ export const http = {
   get: function get<Response = unknown>(
     url: string,
     config?: AxiosRequestConfig
-  ) {
-    return axios
-      .get<Response>(url, config)
-      .then(res => res.data)
-      .catch(e => e.response.data);
+  ): Promise<AxiosResponse<Response>> {
+    return axios.get<Response>(url, config).catch((e: AxiosError) => {
+      if (e.response) {
+        throw new Error(String(e.response.data));
+      } else {
+        throw e;
+      }
+    });
   },
 };
 
