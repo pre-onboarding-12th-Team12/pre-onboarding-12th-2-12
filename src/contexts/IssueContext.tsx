@@ -31,7 +31,7 @@ const GlobalContext: any = {
 export const IssueContext = createContext(GlobalContext);
 
 export function IssueContextProvider({ children }: { children: ReactNode }) {
-  const [issues, setIssues] = useState<any>([]);
+  const [issues, setIssues] = useState<Issues>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -74,7 +74,7 @@ export function IssueContextProvider({ children }: { children: ReactNode }) {
   );
 }
 
-const MOCK_DATA = [
+export const MOCK_DATA = [
   {
     url: 'https://api.github.com/repos/facebook/react/issues/13991',
     repository_url: 'https://api.github.com/repos/facebook/react',

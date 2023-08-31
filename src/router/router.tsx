@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from 'App';
+import Home from 'page/Home';
 
 const router = createBrowserRouter([
   {
@@ -9,7 +10,7 @@ const router = createBrowserRouter([
       {
         //FIXME - path 필요시 수정!
         index: true,
-        element: 'home',
+        element: <Home />,
       },
       {
         //FIXME - path 필요시 수정!
