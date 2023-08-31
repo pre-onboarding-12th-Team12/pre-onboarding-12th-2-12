@@ -10,11 +10,6 @@ export default function IssueContent({ content }: { content: string }) {
 }
 
 const MarkdownRenderer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  margin: 0 auto;
-  padding: 50px 0;
   word-break: break-all;
   color: #222;
 
