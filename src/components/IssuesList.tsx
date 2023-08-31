@@ -53,10 +53,12 @@ const TopContent = styled.div`
 const BottomContent = styled.div`
   display: flex;
   gap: 10px;
+  color: var(--gray-800);
 `;
 
 const Number = styled.span`
-  font-weight: 500;
+  font-weight: 700;
+  color: var(--light);
 `;
 
 const Title = styled.span`
@@ -65,10 +67,12 @@ const Title = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--white);
 `;
 
 const Conmment = styled.span`
   display: inline-block;
   text-align: right;
   width: 15%;
+  color: var(--gray-800);
 `;

@@ -20,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: var(--dark-bg);
-    color: var(--light);
 
     &::-webkit-scrollbar {
       width: 9px;
