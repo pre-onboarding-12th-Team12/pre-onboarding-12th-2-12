@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from 'App';
 import Detail from '../page/Detail';
+// import IssueListPage from 'page/IssueListTemp';
+import IssueListPage from 'page/IssueListPage';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -9,7 +11,7 @@ const router = createBrowserRouter([
       {
         //FIXME - path 필요시 수정!
         index: true,
-        element: 'home',
+        element: <IssueListPage></IssueListPage>,
       },
       {
         //FIXME - path 필요시 수정!
