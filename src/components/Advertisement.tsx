@@ -15,6 +15,8 @@ const AdvertisementItem = () => {
 export default AdvertisementItem;
 
 const AdContent = styled.a`
+  background: var(--gray-800);
+  border-radius: 12px;
   padding: 10px;
   display: flex;
   justify-content: center;

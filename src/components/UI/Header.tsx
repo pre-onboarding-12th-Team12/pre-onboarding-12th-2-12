@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { ORGANIZATION, REPO } from 'utils/constants';
 
-export default function Header() {
+const Header = () => {
   return (
     <Wrapper>
       <h1>
@@ -9,7 +9,7 @@ export default function Header() {
       </h1>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.header`
   width: 500px;
@@ -23,3 +23,5 @@ const Wrapper = styled.header`
     color: var(--white);
   }
 `;
+
+export default Header;

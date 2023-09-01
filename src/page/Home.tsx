@@ -1,16 +1,13 @@
 import useInfinityScroll from 'hooks/useInfinityScroll';
 import { useContext } from 'react';
-import { IssueContextProviderTemp } from 'contexts/issueContextTempForIssueList';
+import { IssueContext } from 'contexts/IssueContext';
 import { styled } from 'styled-components';
 import AdvertisementItem from 'components/Advertisement';
 import IssuesList from 'components/IssuesList';
-import Error from 'elements/Error';
-import Loading from 'elements/Loading';
+import { Error, Loading } from 'components/UI';
 
 const Home: React.FC = () => {
-  const { issues, fetchIssues, isLoading, isError } = useContext(
-    IssueContextProviderTemp
-  );
+  const { issues, fetchIssues, isLoading, isError } = useContext(IssueContext);
 
   const observeRef = useInfinityScroll({ callback: getIssuesCallback });
 
@@ -42,6 +39,6 @@ const ObserveRef = styled.li`
   height: 20px;
 `;
 
-const hasAdvertisement = (idx: number) => (idx + 1) % 4 === 0;
+const hasAdvertisement = (idx: number) => (idx + 1) % 5 === 0;
 
 export default Home;
