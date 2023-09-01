@@ -3,52 +3,52 @@ import styled from 'styled-components';
 import IssueContent from 'components/IssueContent';
 import Image from 'elements/Image';
 import Text from 'elements/Text';
-import IconChip from 'elements/IconChip';
-// import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
-import { getIssue } from 'api/api';
 import { Issue } from 'types/Issue';
+import formatDate from 'utils/formatDate';
+import { useParams } from 'react-router-dom';
+import { getIssueDetail } from 'api/issueApi';
+import { ORGANIZATION, REPO } from 'utils/constants';
+import IconChip from 'elements/IconChip';
+import { getIssue } from 'api/api';
 import formatDate from 'utils/formatDate';
 import Error from 'elements/Error';
 import Loading from 'elements/Loading';
 
 const Home: React.FC = () => {
-  const issueNumber = 13991;
+  const { id } = useParams<{ id?: string }>();
+  const issueNumber = id ? parseInt(id, 10) : undefined;
   const [issueInfo, setIssueInfo] = useState<Issue>();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
-    getIssue(issueNumber)
-      .then(response => {
-        console.log(response.data);
-        setIssueInfo(response.data);
-      })
-      .catch(error => {
-        console.error(error);
+    if (issueNumber !== undefined) {
+      setIsLoading(true);
+      getIssueDetail(ORGANIZATION, REPO, issueNumber)
+        .then(response => {
+          console.log(response);
+          setIssueInfo(response);
+          console.log(response.reactions);
+        })
+        .catch(error => {
+          console.error(error);
         setIsError(true);
-      })
-      .finally(() => {
+        }).finally(() => {
         setIsLoading(false);
       });
-  }, []);
+    }
 
+  }, []);
   return (
     <>
       {isLoading && <Loading />}
       {isError && <Error />}
-      <div>
-        <h1>Detail1 Page</h1>
-      </div>
-      <div>
-        <h1>Header</h1>
-      </div>
       <Card>
         <Title>
-          <Text size={'50px'} color={`var(--primary)`}>
+          <Text size={'30px'} color={`var(--primary)`}>
             {issueInfo?.title}&nbsp;
           </Text>
-          <Text size={'50px'} color={`var(--secondary)`}>
+          <Text size={'30px'} color={`var(--secondary)`}>
             {' '}
             #{issueInfo?.number}
           </Text>
@@ -65,14 +65,13 @@ const Home: React.FC = () => {
         <Image src={issueInfo?.user.avatar_url} />
         <Balloon>
           <IssueContent content={issueInfo?.body || 'No body available'} />
-          <IconChip label={'5'} />
         </Balloon>
       </Body>
     </>
   );
 };
 const Card = styled.div`
-  border: 5px solid red;
+  border-bottom: 5px solid --var(dark-bg);
 `;
 
 const Body = styled.div`
@@ -80,7 +79,6 @@ const Body = styled.div`
   flex-direction: row;
   color: red;
   padding: 20px;
-  border: 5px solid blue;
 `;
 const CardContents = styled.div`
   display: flex;
@@ -107,7 +105,7 @@ const Balloon = styled.div`
     position: absolute;
     border-style: solid;
     border-width: 10px 10px 10px 0;
-    border-color: transparent var(--white) transparent transparent;
+    border-color: transparent var(--gray-800) transparent transparent;
     top: 19px;
     left: -10px;
     transform: translateY(-50%);
