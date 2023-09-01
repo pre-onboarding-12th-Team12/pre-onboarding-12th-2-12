@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IconType } from 'react-icons';
 
 interface IconChipProps {
-  label: string;
+  label: number | undefined;
   color?: string;
   size?: string;
+  icon?: JSX.Element;
 }
 
-const IconChip: React.FC<IconChipProps> = ({ label, color, size }) => {
+const IconChip: React.FC<IconChipProps> = ({ label, color, size, icon }) => {
   return (
     <ChipContainer color={color} size={size}>
-      <Icon>asd</Icon>
+      {icon && <Icon>{icon}</Icon>}
       {label}
     </ChipContainer>
   );
@@ -29,4 +31,5 @@ const ChipContainer = styled.div<{ color?: string; size?: string }>`
 const Icon = styled.span`
   margin-right: 4px;
 `;
+
 export default IconChip;

@@ -13,7 +13,7 @@ const IssuesList = ({ list }: ListType) => {
 
   return (
     <ListContent
-      onClick={() => navigate(`/detail/${list.id}`, { state: list.number })}
+      onClick={() => navigate(`/detail/${list.number}`, { state: list.number })}
     >
       <TopContent>
         <Number>#{list.number}</Number>
