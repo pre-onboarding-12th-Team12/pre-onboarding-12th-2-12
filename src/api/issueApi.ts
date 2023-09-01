@@ -12,11 +12,11 @@ export const getIssues = async (
   owner: string,
   repo: string,
   page: number
-): Promise<Issues | any> => {
-  const response = await http.get<Issues>(
+): Promise<Issues> => {
+  const issues = await http.get<Issues>(
     `/repos/${owner}/${repo}/issues?page=${page}&per_page=28&sort=comments&state=open`
   );
-  return response;
+  return issues;
 };
 
 /**
@@ -31,8 +31,8 @@ export const getIssueDetail = async (
   repo: string,
   issueNumber: number
 ): Promise<Issue> => {
-  const response = await http.get<Issue>(
+  const issueDetail = await http.get<Issue>(
     `/repos/${owner}/${repo}/issues/${issueNumber}`
   );
-  return response.data;
+  return issueDetail; // 직접 반환
 };
