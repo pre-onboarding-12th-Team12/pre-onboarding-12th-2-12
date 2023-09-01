@@ -26,7 +26,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <Wrapper width="1000px">
+    <>
       <div>
         <h1>Detail1 Page</h1>
       </div>
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
           <IconChip label={'5'} />
         </Balloon>
       </Body>
-    </Wrapper>
+    </>
   );
 };
 const Card = styled.div`
