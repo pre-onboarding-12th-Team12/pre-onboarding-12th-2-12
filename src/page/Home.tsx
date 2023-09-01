@@ -25,7 +25,7 @@ const Home: React.FC = () => {
 
   const issueElements = issues.map((list, idx) => (
     <li key={list.id}>
-      <IssuesList list={list} key={list.id} />
+      <IssuesList list={list} key={list.number} />
       {hasAdvertisement(idx) && <AdvertisementItem />}
     </li>
   ));
@@ -42,6 +42,6 @@ const ObserveRef = styled.li`
   height: 20px;
 `;
 
-const hasAdvertisement = (idx: number) => (idx + 1) % 5 === 0;
+const hasAdvertisement = (idx: number) => (idx + 1) % 4 === 0;
 
 export default Home;
