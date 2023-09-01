@@ -1,6 +1,6 @@
 import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 const BASE_URL = 'https://api.github.com';
-const TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+const TOKEN = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 
 // Github API를 사용하기 위해서는 토큰이 필요합니다.
 if (!TOKEN) {
