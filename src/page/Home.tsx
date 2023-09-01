@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import useInfinityScroll from 'hooks/useInfinityScroll';
 import { useContext } from 'react';
 import { IssueContextProviderTemp } from 'contexts/issueContextTempForIssueList';
