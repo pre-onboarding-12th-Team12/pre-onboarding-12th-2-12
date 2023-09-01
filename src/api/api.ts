@@ -1,11 +1,10 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { Issue } from 'types/Issue';
-const owner = 'facebook'; // 리포지토리 소유자의 GitHub 사용자명
-const repo = 'react';
+import { REPO, ORGANIZATION } from 'utils/constants';
 
 // axios 인스턴스 생성
 const instance: AxiosInstance = axios.create({
-  baseURL: `https://api.github.com/repos/${owner}/${repo}`, // 기본 URL 설정
+  baseURL: `https://api.github.com/repos/${ORGANIZATION}/${REPO}`, // 기본 URL 설정
   headers: {
     'Content-Type': 'application/json', // 기본 헤더 설정
   },
