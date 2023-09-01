@@ -8,12 +8,22 @@ import formatDate from 'utils/formatDate';
 import { useParams } from 'react-router-dom';
 import { getIssueDetail } from 'api/issueApi';
 import { ORGANIZATION, REPO } from 'utils/constants';
+import IconChip from 'elements/IconChip';
+import { getIssue } from 'api/api';
+import formatDate from 'utils/formatDate';
+import Error from 'elements/Error';
+import Loading from 'elements/Loading';
+
 const Home: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
   const issueNumber = id ? parseInt(id, 10) : undefined;
   const [issueInfo, setIssueInfo] = useState<Issue>();
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     if (issueNumber !== undefined) {
+      setIsLoading(true);
       getIssueDetail(ORGANIZATION, REPO, issueNumber)
         .then(response => {
           console.log(response);
@@ -22,12 +32,17 @@ const Home: React.FC = () => {
         })
         .catch(error => {
           console.error(error);
-        });
+        setIsError(true);
+        }).finally(() => {
+        setIsLoading(false);
+      });
     }
-  }, []);
 
+  }, []);
   return (
     <>
+      {isLoading && <Loading />}
+      {isError && <Error />}
       <Card>
         <Title>
           <Text size={'30px'} color={`var(--primary)`}>
