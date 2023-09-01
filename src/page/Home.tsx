@@ -39,6 +39,6 @@ const ObserveRef = styled.li`
   height: 20px;
 `;
 
-const hasAdvertisement = (idx: number) => (idx + 1) % 4 === 0;
+const hasAdvertisement = (idx: number) => (idx + 1) % 5 === 0;
 
 export default Home;
