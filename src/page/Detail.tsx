@@ -9,13 +9,16 @@ import { getIssue } from 'api/api';
 import { Issue } from 'types/Issue';
 import formatDate from 'utils/formatDate';
 import Error from 'elements/Error';
+import Loading from 'elements/Loading';
 
 const Home: React.FC = () => {
   const issueNumber = 13991;
   const [issueInfo, setIssueInfo] = useState<Issue>();
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getIssue(issueNumber)
       .then(response => {
         console.log(response.data);
@@ -24,11 +27,15 @@ const Home: React.FC = () => {
       .catch(error => {
         console.error(error);
         setIsError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
   return (
     <>
+      {isLoading && <Loading />}
       {isError && <Error />}
       <div>
         <h1>Detail1 Page</h1>
