@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from 'App';
-import Detail from '../page/Detail';
+import Home from 'page/Home';
+// import Detail from '../page/Detail';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -9,12 +11,12 @@ const router = createBrowserRouter([
       {
         //FIXME - path 필요시 수정!
         index: true,
-        element: 'home',
+        element: <Home />,
       },
       {
         //FIXME - path 필요시 수정!
         path: '/detail/:id',
-        element: <Detail />,
+        element: '<Detail />',
       },
     ],
   },
