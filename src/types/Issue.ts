@@ -32,20 +32,20 @@ export interface Issue {
   labels: object;
   state: string;
   locked: boolean;
-  assignee: object;
+  assignee: object | null;
   assignees: object;
-  milestone: object;
+  milestone: object | null;
   comments: number;
   created_at: string;
   updated_at: string;
-  closed_at: object;
+  closed_at: string | null;
   author_association: string;
-  active_lock_reason: object;
+  active_lock_reason: object | null;
   body: string;
   reactions: object;
   timeline_url: string;
-  performed_via_github_app: object;
-  state_reason: object;
+  performed_via_github_app: object | null;
+  state_reason: object | null;
 }
 
 export type Issues = Issue[];
