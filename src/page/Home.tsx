@@ -4,6 +4,7 @@ import { IssueContextProviderTemp } from 'contexts/issueContextTempForIssueList'
 import { styled } from 'styled-components';
 import AdvertisementItem from 'components/Advertisement';
 import IssuesList from 'components/IssuesList';
+import Error from 'elements/Error';
 
 const Home: React.FC = () => {
   const { issues, fetchIssues, isLoading, isError } = useContext(
@@ -32,7 +33,7 @@ const Home: React.FC = () => {
     <ul>
       {issueElements}
       {isLoading && <>loading..</>}
-      {isError ? <>error가 발생하였습니다.</> : <ObserveRef ref={observeRef} />}
+      {isError ? <Error /> : <ObserveRef ref={observeRef} />}
     </ul>
   );
 };
