@@ -4,16 +4,17 @@ import IssueContent from 'components/IssueContent';
 import Image from 'elements/Image';
 import Text from 'elements/Text';
 import IconChip from 'elements/IconChip';
-import { Wrapper } from 'style/Wrapper';
 // import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { getIssue } from 'api/api';
 import { Issue } from 'types/Issue';
 import formatDate from 'utils/formatDate';
+import Error from 'elements/Error';
 import Loading from 'elements/Loading';
 
 const Home: React.FC = () => {
   const issueNumber = 13991;
   const [issueInfo, setIssueInfo] = useState<Issue>();
+  const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const Home: React.FC = () => {
       })
       .catch(error => {
         console.error(error);
+        setIsError(true);
       })
       .finally(() => {
         setIsLoading(false);
@@ -34,41 +36,38 @@ const Home: React.FC = () => {
   return (
     <>
       {isLoading && <Loading />}
-
-      <Wrapper width="1000px">
-        <div>
-          <h1>Detail1 Page</h1>
-        </div>
-        <div>
-          <h1>Header</h1>
-        </div>
-        <Card>
-          <Title>
-            <Text size={'50px'} color={`var(--primary)`}>
-              {issueInfo?.title}&nbsp;
-            </Text>
-            <Text size={'50px'} color={`var(--secondary)`}>
-              #{issueInfo?.number}
-            </Text>
-          </Title>
-          <CardContents>
-            <Text color={`var(--white)`}>
-              작성자: {issueInfo?.user.login} / 작성일:{' '}
-              {issueInfo?.created_at && formatDate(issueInfo.created_at)}
-            </Text>
-            <Text color={`var(--white)`}>
-              코멘트수: {issueInfo?.comments}개{' '}
-            </Text>
-          </CardContents>
-        </Card>
-        <Body>
-          <Image src={issueInfo?.user.avatar_url} />
-          <Balloon>
-            <IssueContent content={issueInfo?.body || 'No body available'} />
-            <IconChip label={'5'} />
-          </Balloon>
-        </Body>
-      </Wrapper>
+      {isError && <Error />}
+      <div>
+        <h1>Detail1 Page</h1>
+      </div>
+      <div>
+        <h1>Header</h1>
+      </div>
+      <Card>
+        <Title>
+          <Text size={'50px'} color={`var(--primary)`}>
+            {issueInfo?.title}&nbsp;
+          </Text>
+          <Text size={'50px'} color={`var(--secondary)`}>
+            {' '}
+            #{issueInfo?.number}
+          </Text>
+        </Title>
+        <CardContents>
+          <Text color={`var(--white)`}>
+            작성자: {issueInfo?.user.login} / 작성일:{' '}
+            {issueInfo?.created_at && formatDate(issueInfo.created_at)}
+          </Text>
+          <Text color={`var(--white)`}>코멘트수: {issueInfo?.comments}개 </Text>
+        </CardContents>
+      </Card>
+      <Body>
+        <Image src={issueInfo?.user.avatar_url} />
+        <Balloon>
+          <IssueContent content={issueInfo?.body || 'No body available'} />
+          <IconChip label={'5'} />
+        </Balloon>
+      </Body>
     </>
   );
 };
