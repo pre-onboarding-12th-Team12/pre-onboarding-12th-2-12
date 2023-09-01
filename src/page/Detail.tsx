@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import IssueContent from 'components/IssueContent';
-import Image from 'elements/Image';
-import Text from 'elements/Text';
-import IconChip from 'elements/IconChip';
-// import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import { Image, Text, IconChip, Error, Loading } from 'components/UI';
 import { getIssue } from 'api/api';
 import { Issue } from 'types/Issue';
 import formatDate from 'utils/formatDate';
-import Error from 'elements/Error';
-import Loading from 'elements/Loading';
 
 const Home: React.FC = () => {
   const issueNumber = 13991;

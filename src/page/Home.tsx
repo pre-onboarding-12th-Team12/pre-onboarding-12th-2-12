@@ -4,8 +4,7 @@ import { IssueContext } from 'contexts/IssueContext';
 import { styled } from 'styled-components';
 import AdvertisementItem from 'components/Advertisement';
 import IssuesList from 'components/IssuesList';
-import Error from 'elements/Error';
-import Loading from 'elements/Loading';
+import { Error, Loading } from 'components/UI';
 
 const Home: React.FC = () => {
   const { issues, fetchIssues, isLoading, isError } = useContext(IssueContext);
