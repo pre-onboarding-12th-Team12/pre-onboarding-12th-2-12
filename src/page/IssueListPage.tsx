@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import useInfinityScroll from 'hooks/useInfinityScroll';
 import { useContext } from 'react';
 import { IssueContextProviderTemp } from 'contexts/issueContextTempForIssueList';
@@ -7,7 +5,7 @@ import { styled } from 'styled-components';
 import AdvertisementItem from 'components/Advertisement';
 import IssuesList from 'components/IssuesList';
 
-const Home: React.FC = () => {
+export default function IssueListPage() {
   const { issues, fetchIssues, isLoading, isError } = useContext(
     IssueContextProviderTemp
   );
@@ -37,11 +35,11 @@ const Home: React.FC = () => {
       {isError ? <>error가 발생하였습니다.</> : <ObserveRef ref={observeRef} />}
     </ul>
   );
-};
+}
 const ObserveRef = styled.li`
   height: 20px;
 `;
 
-const hasAdvertisement = (idx: number) => (idx + 1) % 5 === 0;
-
-export default Home;
+function hasAdvertisement(idx: number) {
+  return (idx + 1) % 5 === 0;
+}

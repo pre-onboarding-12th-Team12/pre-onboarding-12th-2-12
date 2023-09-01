@@ -13,14 +13,14 @@ const axios = Axios.create({
   headers: {
     Accept: 'application/vnd.github+json',
     'X-Github-Api-Version': '2022-11-28',
-    Authorization: `token ${TOKEN}`,
+    Authorization: `${TOKEN}`,
   },
 });
 
 // 공통 에러 처리
 axios.interceptors.response.use(
   <T>(response: AxiosResponse<T>) => {
-    return response.data;
+    return response;
   },
   (error: AxiosError) => {
     if (error.response && error.response.status === 404) {
@@ -33,17 +33,20 @@ axios.interceptors.response.use(
 
 // HTTP 요청을 보내는 함수
 export const http = {
-  get: function get<Response = unknown>(
+  get: async function get<Response = unknown>(
     url: string,
     config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<Response>> {
-    return axios.get<Response>(url, config).catch((e: AxiosError) => {
-      if (e.response) {
-        throw new Error(String(e.response.data));
-      } else {
-        throw e;
-      }
-    });
+  ): Promise<Response> {
+    return axios
+      .get<Response>(url, config)
+      .then(response => response.data) // 여기서 .data를 반환합니다.
+      .catch((e: AxiosError) => {
+        if (e.response) {
+          throw new Error(String(e.response.data));
+        } else {
+          throw e;
+        }
+      });
   },
 };
 
