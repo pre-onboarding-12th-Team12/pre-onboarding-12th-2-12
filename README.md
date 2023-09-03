@@ -1,4 +1,4 @@
-# **Week 2**
+# **Week 3**
 
 동료학습을 통해서 팀에서 생각한 Todolist(선발과제)의 Best Pratice를 만들고 제출해주세요
 
@@ -54,22 +54,23 @@
 - [👑 Best Practice](#-best-practice)
   - [목표](#목표)
     - [진행 방식](#진행-방식)
-    - [Assignment 1 이슈 목록](#assignment-1-이슈-목록)
-    - [Assignment 2 다섯번째 셀마다 광고 이미지 출력](#assignment-2-다섯번째-셀마다-광고-이미지-출력)
-    - [Assignment 3 무한 스크롤](#assignment-3-무한-스크롤)
-    - [Assignment 4 이슈 상세 화면](#assignment-4-이슈-상세-화면)
-    - [Assignment 5 공통 헤더](#assignment-5-공통-헤더)
-    - [Assignment 6 데이터 요청 중 로딩 표시](#assignment-6-데이터-요청-중-로딩-표시)
-    - [Assignment 7 에러 화면 구현](#assignment-7-에러-화면-구현)
-    - [Assignment 8 마크다운 렌더링 라이브러리](#assignment-8-마크다운-렌더링-라이브러리)
+    - [Assignment 1 ]()
+    - [Assignment 2 ]()
+    - [Assignment 3 ]()
+    - [Assignment 4 ]()
+    - [Assignment 5 ]()
+    - [Assignment 6 ]()
+    - [Assignment 7 ]()
+    - [Assignment 8 ]()
 
 <br>
 
 ## 🔗 배포 링크
 
-https://github-issues-12.netlify.app/
+https://www.naver.com/
 
-![image](https://github.com/FRONTENDSCHOOL5/final-15-Tripillow/assets/88657261/d982b0f8-2f8c-46a8-92ae-cf3284bd6510)
+![image](https://github.com/pre-onboarding-12th-Team12/pre-onboarding-12th-2-12/assets/107299502/83a1b323-0752-469b-abc8-ea119ab43b3c)
+
 
 <br>
 
@@ -231,149 +232,155 @@ project-root/
 
 <br>
 
-### Assignment 1 이슈 목록
-
-- 이슈 목록 화면 가져오기 API 활용
-- open 상태의 이슈 중 코멘트가 많은 순으로 정렬
-- 각 행에는 ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트수’를 표시
+### Assignment 1
+-요구사항1
+-요구사항2 
 
 | <div style="width:100px">이름</div> | 의견 |
 | :---: | --- |
-| 김진현 | octokit 라이브러리 사용하여 api에 정의된 코멘트 순으로 Get해와서 map으로 리스팅  |
-| 박정민 | axios 사용, url에 sort=comments를 붙여서(쿼리) 통신하여 데이터를 받아와서 렌더링 |
-| 윤다솜 | axios를 이용하여 api 호출, 쿼리스트링을 이용하여 comment 순으로 정렬한 데이터를 가져와 렌더링 |
-| 이기석 | 데이터를 가져와 프론트에서 comment순으로 정렬 |
-| 이도하 | octokit 라이브러리를 사용, useOctokit custom hook을 만들어 response에서 렌더링 시 필요한 데이터만 필터링 하여 return 후 Home 컴포넌트에서 데이터 받아와서 렌더링 |
+| 김진현 |  |
+| 박정민 |  |
+| 윤다솜 |  |
+| 이기석 |  |
+| 이도하 |  |
 
 **👑 Best Practice**
 
-- axios를 이용하여 api 호출, 쿼리스트링을 이용하여 comment 순으로 정렬한 데이터를 가져와 렌더링
+-bestPracticeExample
+
+
 
 <br>
 
-### Assignment 2 다섯번째 셀마다 광고 이미지 출력
-
-- 다섯번째 셀마다 광고 이미지 출력
+### Assignment 2
+-요구사항1
+-요구사항2 
 
 | <div style="width:100px">이름</div> | 의견 |
 | :---: | --- |
-| 김진현 | 이슈 목록 map함수에서 index의 조건부하에 광고이미지 삽입 |
-| 박정민 | 데이터를 받아와 for 반복문 안에서 splice를 사용하여 광고 자리에 객체를 추가한 후 컴포넌트에서 광고와 데이터를 구분하여 렌더링 |
-| 윤다솜 | for 반복문 안에서 다섯번째 셀인 경우, 조건을 주어 광고 이미지 표출, 조건문을 변수로 만들어 조건문 캡슐화  |
-| 이기석 | 데이터를 map 함수로 렌더링할떄 조건문에 요구사항 함수를 검사하여 통과시 광고 컴포넌트 추가 |
-| 이도하 | issues 데이터를 map으로 각각 IssueItem 컴포넌트로 렌더링 해줄 때 Ad props(boolean)를 전달, issues 데이터의 index가 3과 같거나 크고 (index - 3) % 4가 0과 같을 때는 true를 전달하여 Ad props가 true이면 이미지 배열에서의 이미지를 랜덤으로 렌더링 |
+| 김진현 |  |
+| 박정민 |  |
+| 윤다솜 |  |
+| 이기석 |  |
+| 이도하 |  |
 
 **👑 Best Practice**
 
-- for 반복문 안에서 다섯번째 셀인 경우, 조건을 주어 광고 이미지 표출
-- 조건문을 변수로 만들어 조건문 캡슐화
+-bestPracticeExample
+
+
 
 <br>
 
-### Assignment 3 무한 스크롤
-
-- 화면을 아래로 스크롤 할 시 이슈 목록 추가 로딩(인피니티 스크롤)
+### Assignment 3
+-요구사항1
+-요구사항2 
 
 | <div style="width:100px">이름</div> | 의견 |
 | :---: | --- |
-| 김진현 | IntersectionObserver를 이용하여 구현 |
-| 박정민 | IntersectionObserver를 사용하여 구현, 옵저버가 보이면 page + 1을 해주고 page의 state가 변화함에 따라 api 통신을 하여 받은 데이터를 기존 데이터에 붙여서 구현 |
-| 윤다솜 | Intersection Observer를 사용하여 구현 |
-| 이기석 | Intersection Observer를 사용하여 구현  |
-| 이도하 | octokit의 url 중 page=${pagenum}안에 무한 스크롤 시 넣어줄 currentPage useState 값을 handleScroll 함수에서 scroll이 바닥에 닿을 때마다 +1 해주어 새로운 데이터를 불러와서 렌더링. debounce 기능을 위해 setTimeout 사용 |
+| 김진현 |  |
+| 박정민 |  |
+| 윤다솜 |  |
+| 이기석 |  |
+| 이도하 |  |
 
 **👑 Best Practice**
 
-- IntersectionObserver를 사용하여 구현 옵저버가 보이면 page + 1을 해주고 page의 state가 변화함에 따라 api 통신을 하여 받은 데이터를 기존 데이터에 붙여서 구현
+-bestPracticeExample
+
 
 <br>
 
-### Assignment 4 이슈 상세 화면
-
-- 이슈의 상세 내용 표시
-- ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트 수, 작성자 프로필 이미지, 본문’ 표시
+### Assignment 4
+-요구사항1
+-요구사항2
 
 | <div style="width:100px">이름</div> | 의견 |
 | :---: | --- |
-| 김진현 | useParam으로 issue Number를 전달하여 octokit api로 요청후 렌더링 |
-| 박정민 | navigate의 state로 해당 list의 issues_number 값을 api에 요청하여 데이터를 받아 렌더링 |
-| 윤다솜 | param으로 issue id를 전달하여 detail data를 fetch |
-| 이기석 | param으로 issue id를 전달하여 detail data를 fetch |
-| 이도하 | 각 IssueItem을 클릭 할 경우 IssueItem에서 navigate로 /detail/:id로 이동하면서 state로 해당 item의 데이터를 전달 후 렌더링 |
+| 김진현 |  |
+| 박정민 |  |
+| 윤다솜 |  |
+| 이기석 |  |
+| 이도하 |  |
 
 **👑 Best Practice**
 
-- param으로 issue id를 전달하여 detail data를 fetch
+-bestPracticeExample
+
 
 <br>
 
-### Assignment 5 공통 헤더
-
-- 두 페이지는 공통 헤더를 공유
-- 헤더에는 Organization / Repository Name이 표시
+### Assignment 5
+-요구사항1
+-요구사항2 
 
 | <div style="width:100px">이름</div> | 의견 |
 | :---: | --- |
-| 김진현 | 상수변수로 직접 작성 |
-| 박정민 | name을 직접 작성하여 사용함 |
-| 윤다솜 | constants.ts에 constant 변수 값으로 선언하여 공통으로 공유, 공통 Header 컴포넌트를 구현하여 재사용   |
-| 이기석 | useParam을 통해  param을  가져와서 렌더링 하는 공통함수 작성  |
-| 이도하 | name을 직접 지정, header 컴포넌트를 App.tsx에서 모든 경로에서 공통적으로 사용 |
+| 김진현 |  |
+| 박정민 |  |
+| 윤다솜 |  |
+| 이기석 |  |
+| 이도하 |  |
 
 **👑 Best Practice**
 
-- constants.ts에 constant 변수 값으로 선언하여 공통으로 공유 공통 Header 컴포넌트를 구현하여 재사용
+-bestPracticeExample
+
 
 <br>
 
-### Assignment 6 데이터 요청 중 로딩 표시
-
-- 데이터 요청 중 로딩 표시
+### Assignment 6
+-요구사항1
+-요구사항2 
 
 | <div style="width:100px">이름</div> | 의견 |
 | :---: | --- |
-| 김진현 | useState로 isloading을 통해서 데이터 불러오면 false 아니면 true로 로딩표시 조건부 렌더링 |
-| 박정민 | useState boolean 값으로 데이터 요청시 true, 요청 완료시 false로 로딩 표시가 보이도록 구현 (스피너는 css로 구현) |
-| 윤다솜 | api통신이 시작할 때 isLoading 값을 false로 두고, 결과가 반환되었을 때 true로 값을 변환, 로딩중일 때는 스피너를 표출 |
-| 이기석 | 데이터 패칭함수 로직 전후로 useState로 생성한 isloading을 통해 핸들링 |
-| 이도하 | Skeleton 컴포넌트 생성 하여 useOctokit안의 getOctokit 함수가 실행될 때 isLoading useState값으로 데이터 요청 시작시 false, 요청 성공시 true로 변경 되면서 false일 동안 skeleton 컴포넌트를 렌더링 |
+| 김진현 |  |
+| 박정민 |  |
+| 윤다솜 |  |
+| 이기석 |  |
+| 이도하 |  |
 
 **👑 Best Practice**
 
-- useState boolean 값으로 데이터 요청시 true, 요청 완료시 false로 로딩 표시가 보이도록 구현 (스피너는 css로 구현)
+-bestPracticeExample
+
 
 <br>
 
-### Assignment 7 에러 화면 구현
-
-- 에러 화면 구현
+### Assignment 7
+-요구사항1
+-요구사항2
 
 | <div style="width:100px">이름</div> | 의견 |
 | :---: | --- |
-| 김진현 | 없는 경로일때 Error페이지 navigate |
-| 박정민 | createBrowserRouter에서 errorElement를 설정하여 없는 경로일 경우 404 페이지 띄워주기 |
-| 윤다솜 | rotuer 404 페이지 에러 화면 구현, api 통신 에러시 오류 ui 구현 |
-| 이기석 | ErrorBoundary로 에러 핸들링  |
-| 이도하 | 없는 경로일 경우 404 페이지 띄워주기, ErrorBoundary로 에러 통제하기 |
+| 김진현 |  |
+| 박정민 |  |
+| 윤다솜 |  |
+| 이기석 |  |
+| 이도하 |  |
 
 **👑 Best Practice**
 
-- **잘못된 접근시 404 페이지, api 통신 에러시 에러 페이지**, ErrorBoundary 에러 통제
+-bestPracticeExample
+
+
 
 <br>
 
-### Assignment 8 마크다운 렌더링 라이브러리
-
-- 마크다운 렌더링 라이브러리 사용
+### Assignment 8
+-요구사항1
+-요구사항2 
 
 | <div style="width:100px">이름</div> | 의견 |
 | :---: | --- |
-| 김진현 | react-markdown라이브러리를 사용 |
-| 박정민 | react-markdown 라이브러리를 사용하여 마크다운 렌더링 구현 및 web-vitals 라이브러리를 사용하여 스타일 추가 |
-| 윤다솜 | react-markdown 라이브러리를 사용하여 마크다운 렌더링 구현 |
-| 이기석 | react-markdown 라이브러리를 사용 |
-| 이도하 | react-markdown 라이브러리를 사용하여 렌더링 할 때 ReactMarkdown으로 감싸서 렌더링 |
+| 김진현 |  |
+| 박정민 |  |
+| 윤다솜 |  |
+| 이기석 |  |
+| 이도하 |  |
 
 **👑 Best Practice**
 
-- react-markdown 라이브러리를 사용하여 렌더링 할 때 `<ReactMarkdown>`으로 감싸서 렌더링
+-bestPracticeExample
+
